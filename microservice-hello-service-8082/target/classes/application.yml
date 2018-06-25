@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: hello-service
+
+server: 
+  port: 8082
+  
+eureka:
+  instance:
+#    instance-id: hello-service-8082
+    instance-id: ${spring.application.name}-${server.port}
+    prefer-ip-address: true
+  client: 
+    service-url:
+      defaultZone: http://server1:1111/eureka/  
